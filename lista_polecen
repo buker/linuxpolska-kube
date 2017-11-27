@@ -1,0 +1,11 @@
+#Tworzenie speców
+#az ad sp create-for-rbac --query [appId,password,tenant]
+
+
+
+az group create --name LinuxPolska --location westeurope
+
+az acs create --orchestrator-type kubernetes --resource-group LinuxPolska --name kubernetes --generate-ssh-keys --agent-count 2
+
+az acs kubernetes get-credentials --resource-group=LinuxPolska --name=kubernetes
+
